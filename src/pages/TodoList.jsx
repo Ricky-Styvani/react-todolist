@@ -29,7 +29,7 @@ const TodoList = () => {
 
   const completeTodo = index => {
     const addedTodo = [...todos];
-    addedTodo[index].isCompleted = true;
+    addedTodo[index].isCompleted = !addedTodo[index].isCompleted;
 
     setTodos(addedTodo);
   };
