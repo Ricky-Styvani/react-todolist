@@ -5,17 +5,24 @@ import Todo from "./Todo";
 const Todos = ({ todos, completeTodo }) => {
   return (
     <section className="todos">
-      {todos.map((todo, index) => {
-        return (
-          <Todo
-            key={index}
-            text={todo.text}
-            isCompleted={todo.isCompleted}
-            completeTodo={completeTodo}
-            index={index}
-          />
-        );
-      })}
+      {todos.length > 0 &&
+        todos.map((todo, index) => {
+          return (
+            <Todo
+              key={index}
+              text={todo.text}
+              isCompleted={todo.isCompleted}
+              completeTodo={completeTodo}
+              index={index}
+            />
+          );
+        })}
+      {todos.length === 0 && (
+        <div className="todo-placeholder-text">
+          Buat Todo Dengan click{" "}
+          <span className="add-button-placeholder-text">ADD</span>
+        </div>
+      )}
     </section>
   );
 };
